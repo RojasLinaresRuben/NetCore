@@ -1,0 +1,51 @@
+﻿@page
+@model StoreWebCore.Pages.Shop.UsersModel
+@{
+}
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form  method="post" asp-page="Users">
+                
+
+            <table>
+                <tr>
+                    <td>UserName</td>
+                    <td><input asp-for="@Model.usuario.Username" /></td>
+                    <td><span asp-validation-for="@Model.usuario.Username" class="error"></span></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input asp-for="@Model.usuario.Password" /></td>
+                    <td><span asp-validation-for="@Model.usuario.Password" class="error"></span></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input asp-for="@Model.usuario.Age" /></td>
+                    <td><span asp-validation-for="@Model.usuario.Age" class="error"></span></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input asp-for="@Model.usuario.Email" /></td>
+                    <td><span asp-validation-for="@Model.usuario.Email" class="error"></span></td>
+                </tr>
+                <tr>
+                    <td>Website</td>
+                    <td><input asp-for="@Model.usuario.Website" /></td>
+                    <td><span asp-validation-for="@Model.usuario.Website" class="error"></span></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" name="Save" value="Save" /></td>
+                    
+                </tr>
+            </table>
+
+            
+
+        </form>
+    </body>
+    </html>

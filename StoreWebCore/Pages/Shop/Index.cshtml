@@ -1,0 +1,130 @@
+﻿@page
+@model StoreWebCore.Pages.Shop.IndexModel
+@{
+}
+
+<html>
+
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="~/js/mylib.js"></script>
+</head>
+
+<body>
+    Age: @Model.Age
+    <br />
+    Username: @Model.Username
+    <br />
+    Status: @Model.Status
+    <br />
+    Birtday: @Model.Birthday.ToString("MM/dd/yyyy")
+
+    <h3 class="format">IndexPage</h3>
+    <img src="~/image/thumb1.gif" onclick="clickMe()" />
+
+    <h3> Product Info</h3>
+    <table border="1" cellpadding="2" cellspacing="2">
+        <tr>
+            <td>ID</td>
+            <td>@Model.product.Id</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@Model.product.Name</td>
+        </tr>
+        <tr>
+            <td>Photo</td>
+            <td><img src="~/images/@Model.product.Photo" width="60" /></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>@Model.product.Price</td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td>@Model.product.Quantity</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>@(Model.product.Price * Model.product.Quantity) </td>
+        </tr>
+    </table>
+
+    <h3>Product List</h3>
+    <table border="1" cellpadding="2" cellspacing="2">
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+        @foreach (var product in Model.ProductList)
+        {
+            <tr>
+                <td>@product.Id </td>
+                <td>@product.Name </td>
+                <td><img src="~/image/@product.Photo" width="60" /></td>
+                <td>@product.Price </td>
+                <td>@product.Quantity </td>
+                <td>@(product.Price* product.Quantity) </td>
+            </tr>
+        }
+    </table>
+
+    <h3>Config List</h3>
+
+    <table border="1" cellpadding="2" cellspacing="2">
+        <tr>
+            <th>Config</th>
+        </tr>
+        @foreach (var config in Model.ConfigList)
+        {
+            <tr>
+                <td>@config</td>
+            </tr>
+        }
+    </table>
+
+    <a asp-page="Index" asp-page-handler="Menu1">Menu1</a>|
+    <a asp-page="Index" asp-page-handler="Menu2">Menu2</a>|
+    <a asp-page="Index" asp-page-handler="Menu3">Menu3</a>
+    <br />
+    <br />
+
+    <fieldset>
+        <legend>
+            form 1
+        </legend>
+        <form method="post" asp-page="Index" asp-page-handler="Submit1">
+            <input type="submit" value="Submit 1" />
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            form 1
+        </legend>
+        <form method="post" asp-page="Index" asp-page-handler="Submit2">
+            <input type="submit" value="Submit 2" />
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            form 1
+        </legend>
+        <form method="post" asp-page="Index" asp-page-handler="Submit3">
+            <input type="submit" value="Submit 3" />
+        </form>
+    </fieldset>
+    @Model.Msg
+
+    <a asp-page="Index" asp-page-handler="Menu1" asp-route-id1="p01"> Menu 1</a>|
+    <a asp-page="Index" asp-page-handler="Menu2" asp-route-id1="p02" asp-route-id2="123"> Menu 2</a>|
+    <a asp-page="Index" asp-page-handler="Menu3" asp-route-id3="p03" asp-route-id4="456"> Menu 3</a>
+    <br />
+   @Html.Raw(@Model.Result);
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <td>
+                <a asp-page="home">Home</a>
+                <a asp-page="abaut">abaut</a>
+                <a asp-page="news">new</a>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                @await Component.InvokeAsync("Category")
+                @await Component.InvokeAsync("Vendor")
+            </td>
+            <td>
+                @RenderBody()
+            </td>
+        </tr>
+    </table>
+    <div>
+        
+    </div>
+</body>
+</html>

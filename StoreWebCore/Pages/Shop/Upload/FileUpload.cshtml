@@ -1,0 +1,24 @@
+﻿@page
+@model StoreWebCore.Pages.Shop.FileUploadModel
+@{
+}
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+           <form asp-page="FileUpload" enctype="multipart/form-data" method="post">
+               Photo <input type="file" name="photo" value="" accept="image/*" />
+               <br />
+               <input type="submit" value="Upload"/>
+               @if (!string.IsNullOrEmpty(Model.FileName)) { 
+                <span>
+                    <br />
+                    <img src="~/images/@Model.FileName"/>
+                </span>
+               
+               }
+           </form>
+    </body>
+    </html>

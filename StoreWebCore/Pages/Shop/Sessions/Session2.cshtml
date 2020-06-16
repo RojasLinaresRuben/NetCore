@@ -1,0 +1,50 @@
+﻿@page
+@model StoreWebCore.Pages.Shop.Sessions.Session2Model
+@{
+}
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        Age:@Model.age
+        <br />
+        Username: @Model.username
+        <h3>Product info</h3>
+        <table border="1">
+            <tr>
+                <td>id</td>
+                <td>@Model.product.Id</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@Model.product.Name</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>@Model.product.Price</td>
+            </tr>
+        </table>
+        <h3>Product List</h3>
+
+        <table  border="1">
+            <tr>
+                <td>id</td>
+                <td>Name</td>
+                <td>Price</td>
+            </tr>
+            @foreach (var product in Model.listProducts)
+            {
+                <tr>
+
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                </tr>
+               
+            }
+
+        </table>
+
+    </body>
+    </html>

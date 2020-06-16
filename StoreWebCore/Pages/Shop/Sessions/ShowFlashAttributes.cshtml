@@ -1,0 +1,40 @@
+﻿@page
+@model StoreWebCore.Pages.Shop.ShowFlashAttributesModel
+@{
+}
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+            <h3>Single Values</h3>
+
+            <table>
+                <tr>
+                    <td>Age</td>
+                    <td>@Model.Age</td>
+                </tr>
+
+                <tr>
+                    <td>Username</td>
+                    <td>@Model.username</td>
+                </tr>
+            </table>
+
+        <h3>Product info</h3>
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>@Model.product.Id</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@Model.product.Name</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>@Model.product.Price</td>
+            </tr>
+        </table>
+    </body>
+    </html>

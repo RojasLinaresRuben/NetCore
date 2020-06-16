@@ -1,0 +1,28 @@
+﻿@page
+@model StoreWebCore.Pages.Shop.MultipleFileUploadModel
+@{
+}
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+       
+
+        <form asp-page="MultipleFileUpload" enctype="multipart/form-data" method="post">
+            Photo <input type="file" name="photos"  multiple="multiple" accept="image/*" />
+            <br />
+            <input type="submit" value="Upload" />
+            @if (Model.FileNames != null && Model.FileNames.Count > 0)
+            {
+                <ul>
+                    @foreach (var fileName in Model.FileNames)
+                    {
+                        <li><img src="~/images/@fileName" /></li>
+                    }
+                </ul>
+            }
+        </form>
+    </body>
+    </html>

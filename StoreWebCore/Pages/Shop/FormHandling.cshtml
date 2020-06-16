@@ -1,0 +1,83 @@
+﻿@page
+@model StoreWebCore.Pages.Shop.FormHandlingModel
+@{
+}
+
+
+<html>
+<head>
+
+</head>
+<body>
+    <h3>Register Account</h3>
+    <form asp-page="FormHandling" method="post">
+        <table border="0" cellpadding="2" cellspacing="2">
+            <tr>
+                <td>Username</td>
+                <td>
+                    <input asp-for="@Model.accountViewModel.account.Username" />
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                  
+                    <input type="password" asp-for="@Model.accountViewModel.account.Password"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Descripcion</td>
+                <td>
+                    <textarea cols="20" rows="5" asp-for="@Model.accountViewModel.account.Description"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>
+                    <input type="checkbox" asp-for="@Model.accountViewModel.account.Status" />
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Gender</td>
+                <td>
+                    <input type="radio" value="male" asp-for="@Model.accountViewModel.account.Gender" />Male
+                    <br />
+                    <input type="radio" value="female" asp-for="@Model.accountViewModel.account.Gender" />Female
+                </td>
+            </tr>
+            <tr>
+                <td>Languajes</td>
+                <td>
+                    @for (int i = 0; i < Model.ListLanguages.Count; i++)
+                    {
+                        <input type="hidden" asp-for="@Model.ListLanguages[i].Id" />
+                        <input type="hidden" asp-for="@Model.ListLanguages[i].Name" />
+                        <input type="checkbox" asp-for="@Model.accountViewModel.account.Languages[i].IsChecked" />
+                        <label asp-for="@Model.ListLanguages[i].Id">@Model.ListLanguages[i].Name</label>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>Role</td>
+                <td>
+                    <select asp-for="@Model.accountViewModel.account.Role" asp-items="@Model.accountViewModel.Roles"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>Hobbies</td>
+                <td>
+                    <select asp-for="@Model.accountViewModel.account.Hobbies" asp-items="@Model.accountViewModel.Hobbies" multiple="multiple"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Save" />
+                    <input type="hidden" asp-for="@Model.accountViewModel.account.Id" />
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>
